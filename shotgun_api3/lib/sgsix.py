@@ -43,7 +43,7 @@ import sys
 # you can use an isinstance test like:
 #     isinstance(value, sgsix.file_types)
 if six.PY3:
-    file_types = (io.IOBase, )
+    file_types = (io.IOBase,)
 else:
     file_types = (file, io.IOBase)  # noqa warning for undefined `file` in python 3
 
@@ -52,9 +52,11 @@ else:
 # variable to allow easier exception handling across Python 2/3.
 if six.PY3:
     import ssl
+
     ShotgunSSLError = ssl.SSLError
 else:
     from .httplib2 import SSLHandshakeError
+
     ShotgunSSLError = SSLHandshakeError
 
 

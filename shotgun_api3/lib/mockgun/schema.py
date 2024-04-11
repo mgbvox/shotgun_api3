@@ -61,7 +61,9 @@ class SchemaFactory(object):
             raise MockgunError("Cannot locate Mockgun schema file '%s'!" % schema_path)
 
         if not os.path.exists(schema_entity_path):
-            raise MockgunError("Cannot locate Mockgun schema file '%s'!" % schema_entity_path)
+            raise MockgunError(
+                "Cannot locate Mockgun schema file '%s'!" % schema_entity_path
+            )
 
         # Poor man's attempt at a cache. All of our use cases deal with a single pair of files
         # for the duration of the unit tests, so keep a cache for both inputs. We don't want

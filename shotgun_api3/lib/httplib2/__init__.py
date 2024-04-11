@@ -12,6 +12,7 @@ __all__ = []
 if six.PY3:
     # Generate ssl_error_classes
     import ssl as __ssl
+
     ssl_error_classes = (__ssl.SSLError, __ssl.CertificateError)
     del __ssl
 
@@ -21,7 +22,10 @@ if six.PY3:
 
 else:
     # Generate ssl_error_classes
-    from .python2 import SSLHandshakeError as __SSLHandshakeError  # TODO: shouldn't rely on this. not public
+    from .python2 import (
+        SSLHandshakeError as __SSLHandshakeError,
+    )  # TODO: shouldn't rely on this. not public
+
     ssl_error_classes = (__SSLHandshakeError,)
     del __SSLHandshakeError
 
